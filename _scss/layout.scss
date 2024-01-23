@@ -1,0 +1,82 @@
+
+//Styles for non-grid support go here.
+
+@supports (display: grid) {
+
+	.grid__section {
+		display: grid;
+		margin: 0;
+		grid-gap: 0;
+		@include for-phone-landscape-up {
+			grid-template-columns: minmax(auto, 360px) 260px;
+			grid-template-rows: auto auto;
+		}
+	}
+
+	.grid--list {
+		display: grid;
+		margin: $card-margin-mobile;
+		grid-gap: 16px;
+		@include for-tablet-portrait-up {
+			grid-template-columns: repeat(auto-fill, 320px);
+			margin-left: 32px;
+		}
+		@include for-tablet-landscape-up {
+			margin-left: 105px;
+			margin-right: 32px;
+			margin-bottom: 64px;
+		}
+	}
+
+	.grid--prototype {
+		display: grid;
+		margin: $card-margin-mobile;
+		grid-gap: $card-margin-mobile;
+		@include for-phone-landscape-up {
+			margin-left: 40px;
+		}
+		@include for-tablet-portrait-up {
+			grid-template-columns: 1fr 352px;
+			grid-template-rows: max-content max-content 1fr;
+			margin-right: 40px;
+		}
+		@include for-tablet-portrait-alt-up {
+			grid-template-columns: 1fr 352px 1fr;
+			grid-template-rows: auto auto;
+			max-width: 840px;
+			
+		}
+		@include for-tablet-landscape-up {
+			margin-top: 54px;
+			margin-left: 105px;
+		}
+	}
+
+	.grid--project {
+		max-width: 800px;
+		display: grid;
+		margin: $card-margin-mobile;
+		grid-gap: 0;
+		@include for-phone-landscape-up {
+			// margin-left: 40px;
+		}
+		@include for-tablet-portrait-up {
+			margin-left: 105px;
+			margin-right: 32px;
+			margin-bottom: 64px;
+		}
+	}
+}
+
+header {
+	position: relative;
+	margin: 64px 0 32px 0;
+}
+
+.latest {
+	width: auto;
+}
+
+
+
+

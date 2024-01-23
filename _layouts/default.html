@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>{{ page.title }}</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/css/main.css">
+	<link rel="icon" type="image/png" href="/img/favicon.png">
+	
+	<style media="screen" type="text/css">
+		html {
+			background: {{ page.background.colour }};
+			background: linear-gradient(to {{ page.background.gradient.direction }}, {% for item in page.background.gradient.colours %}{% if forloop.rindex <= 1 %}{{ item }}{% else %}{{ item }}, {% endif %}{% endfor %});
+		}
+		.device__colour path {
+			fill: {{ page.device.colour }};
+		}
+		h1, h2, li, p, p.info__number--large, .info__tags li, .button {
+			color: {{ page.text-colour }};
+			border-color: {{ page.text-colour }};
+		}
+		.header__logo--prototype path, a path{
+			fill: {{ page.text-colour }};
+		}
+
+		.device__phone {
+			mix-blend-mode: {{ page.device.blend-mode }};
+		}
+
+	</style>
+</head>
+{{ content }}
+</html>
+

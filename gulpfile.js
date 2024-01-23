@@ -13,7 +13,7 @@ var messages = {
 /**
  * Build the Jekyll Site
  */
-gulp.task('jekyll-build', function (done) {
+gulp.task('build', function (done) {
     browserSync.notify(messages.jekyllBuild);
     //return cp.spawn( jekyll , ['build'], {stdio: 'inherit'})    // Works, but at what cost?
     //   .on('close', done);
@@ -23,7 +23,7 @@ gulp.task('jekyll-build', function (done) {
 /**
  * Rebuild Jekyll & do page reload
  */
-gulp.task('jekyll-rebuild', gulp.series('jekyll-build', function (done) {
+gulp.task('jekyll-rebuild', gulp.series('build', function (done) {
     browserSync.reload();
     done();
 }));
@@ -45,7 +45,7 @@ gulp.task('sass', function () {
 /**
  * Wait for jekyll-build, then launch the Server
  */
-gulp.task('browser-sync', gulp.series('sass', 'jekyll-build', function() {
+gulp.task('browser-sync', gulp.series('sass', 'build', function() {
     browserSync({
         server: {
             baseDir: '_site'
